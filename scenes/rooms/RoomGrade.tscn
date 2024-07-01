@@ -1,0 +1,161 @@
+[gd_scene load_steps=12 format=3 uid="uid://d3sui2w0j6xpj"]
+
+[ext_resource type="Script" path="res://scenes/rooms/RoomGrade.gd" id="1_05l1m"]
+[ext_resource type="AudioStream" uid="uid://dxqyr1bdsegkq" path="res://sounds/bgm_actclear.ogg" id="2_g42v7"]
+[ext_resource type="FontFile" uid="uid://dp1qjkdy0dvo" path="res://fonts/acknowtt.ttf" id="3_umtjy"]
+[ext_resource type="AudioStream" uid="uid://cc85id431mlnn" path="res://sounds/has-item.wav" id="4_pm2at"]
+[ext_resource type="AudioStream" uid="uid://ck4n6pi123pm1" path="res://sounds/KSHMR Hi Hats Closed 03.wav" id="5_325qc"]
+[ext_resource type="AudioStream" uid="uid://dof1a5cnnlxe7" path="res://sounds/SFX_Graded.wav" id="6_sctio"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qbbv2"]
+font = ExtResource("3_umtjy")
+font_size = 96
+
+[sub_resource type="LabelSettings" id="LabelSettings_lepso"]
+font = ExtResource("3_umtjy")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_aavvb"]
+font = ExtResource("3_umtjy")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_r5w3w"]
+font = ExtResource("3_umtjy")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_66fgh"]
+font = ExtResource("3_umtjy")
+font_size = 128
+font_color = Color(1, 0, 1, 1)
+
+[node name="RoomGrade" type="Node2D" node_paths=PackedStringArray("BGM_node", "SFX_Subject", "SFX_Labeling", "SFX_Graded", "Label_Subject", "Midterm", "Assignment", "Final", "Label_Rank", "Label_Grade")]
+script = ExtResource("1_05l1m")
+BGM_node = NodePath("BGM")
+SFX_Subject = NodePath("Subject/SFX_Subject")
+SFX_Labeling = NodePath("Grades/SFX_Labeling")
+SFX_Graded = NodePath("Grades/SFX_Graded")
+Label_Subject = NodePath("Subject/Label_Subject")
+Midterm = NodePath("Grades/Midterm")
+Assignment = NodePath("Grades/Assignment")
+Final = NodePath("Grades/Final")
+Label_Rank = NodePath("Grades/Label_Rank")
+Label_Grade = NodePath("Grades/Label_Grade")
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_g42v7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Subject" type="Node2D" parent="."]
+
+[node name="Label_Subject" type="Label" parent="Subject"]
+visible = false
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 608.0
+offset_bottom = 448.0
+text = "internet
+protocol"
+label_settings = SubResource("LabelSettings_qbbv2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFX_Subject" type="AudioStreamPlayer2D" parent="Subject"]
+stream = ExtResource("4_pm2at")
+
+[node name="Grades" type="Node2D" parent="."]
+
+[node name="SFX_Labeling" type="AudioStreamPlayer2D" parent="Grades"]
+stream = ExtResource("5_325qc")
+
+[node name="Midterm" type="Node2D" parent="Grades"]
+visible = false
+
+[node name="Label_Midterm" type="Label" parent="Grades/Midterm"]
+offset_left = 8.0
+offset_top = 160.0
+offset_right = 895.0
+offset_bottom = 204.0
+text = "midterm :"
+label_settings = SubResource("LabelSettings_lepso")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label_MidtermScore" type="Label" parent="Grades/Midterm"]
+offset_left = 920.0
+offset_top = 160.0
+offset_right = 1152.0
+offset_bottom = 204.0
+text = "30/30"
+label_settings = SubResource("LabelSettings_aavvb")
+vertical_alignment = 1
+
+[node name="Assignment" type="Node2D" parent="Grades"]
+visible = false
+
+[node name="Label_Assignment" type="Label" parent="Grades/Assignment"]
+offset_left = 8.0
+offset_top = 208.0
+offset_right = 895.0
+offset_bottom = 252.0
+text = "assignment :"
+label_settings = SubResource("LabelSettings_lepso")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label_AssignmentScore" type="Label" parent="Grades/Assignment"]
+offset_left = 920.0
+offset_top = 208.0
+offset_right = 1152.0
+offset_bottom = 252.0
+text = "20/20"
+label_settings = SubResource("LabelSettings_aavvb")
+vertical_alignment = 1
+
+[node name="Final" type="Node2D" parent="Grades"]
+visible = false
+
+[node name="Label_Final" type="Label" parent="Grades/Final"]
+offset_left = 8.0
+offset_top = 256.0
+offset_right = 895.0
+offset_bottom = 300.0
+text = "final :"
+label_settings = SubResource("LabelSettings_lepso")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label_FinalScore" type="Label" parent="Grades/Final"]
+offset_left = 920.0
+offset_top = 256.0
+offset_right = 1152.0
+offset_bottom = 300.0
+text = "28/30"
+label_settings = SubResource("LabelSettings_aavvb")
+vertical_alignment = 1
+
+[node name="Label_Rank" type="Label" parent="Grades"]
+visible = false
+offset_top = 432.0
+offset_right = 892.0
+offset_bottom = 476.0
+text = "rank"
+label_settings = SubResource("LabelSettings_r5w3w")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SFX_Graded" type="AudioStreamPlayer2D" parent="Grades"]
+stream = ExtResource("6_sctio")
+
+[node name="Label_Grade" type="Label" parent="Grades"]
+visible = false
+offset_left = 928.0
+offset_top = 376.0
+offset_right = 1062.0
+offset_bottom = 490.0
+text = "A+"
+label_settings = SubResource("LabelSettings_66fgh")
+vertical_alignment = 1
