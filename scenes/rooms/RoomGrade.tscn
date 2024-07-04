@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3sui2w0j6xpj"]
+[gd_scene load_steps=4 format=3 uid="uid://d3sui2w0j6xpj"]
 
 [ext_resource type="PackedScene" uid="uid://dy6x6nvtr3xr4" path="res://scenes/gradegenerator/GradeGenerator.tscn" id="1_37eul"]
 [ext_resource type="Script" path="res://scenes/rooms/RoomGrade.gd" id="1_bqp7b"]
+[ext_resource type="Texture2D" uid="uid://bdn32htpd7ly6" path="res://images/jhan.png" id="3_1hhlc"]
 
-[node name="RoomGrade" type="Node2D" node_paths=PackedStringArray("GradeGenerator_node")]
+[node name="RoomGrade" type="Node2D" node_paths=PackedStringArray("GradeGenerator_node", "jhan_node")]
 script = ExtResource("1_bqp7b")
 GradeGenerator_node = NodePath("GradeGenerator")
+jhan_node = NodePath("Jhan")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
@@ -19,3 +22,10 @@ list_to_print_left = Array[String](["hw :", "prog hw  I :", "midterm :", "prog h
 list_to_print_right = Array[String](["49/49", "100/100", "89/101", "100/100", "75/??"])
 grade = "A+"
 grade_color = Color(1, 0, 1, 1)
+
+[node name="Jhan" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+z_index = -1
+position = Vector2(920, 384)
+texture = ExtResource("3_1hhlc")
