@@ -22,7 +22,7 @@ var list_size: int
 
 const y_center = 240
 
-func _ready():
+func generate_grade():
 	list_size = list_to_print_left.size()
 	
 	await get_tree().create_timer(0.5).timeout
