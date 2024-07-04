@@ -7,12 +7,8 @@ font = ExtResource("1_hlodg")
 font_size = 96
 
 [node name="LabelSubject" type="Label"]
-offset_left = 32.0
-offset_top = 64.0
-offset_right = 608.0
-offset_bottom = 448.0
-text = "internet
-protocol"
+offset_right = 576.0
+offset_bottom = 384.0
 label_settings = SubResource("LabelSettings_qbbv2")
 horizontal_alignment = 1
 vertical_alignment = 1

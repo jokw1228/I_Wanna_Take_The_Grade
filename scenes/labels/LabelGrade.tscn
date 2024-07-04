@@ -5,13 +5,11 @@
 [sub_resource type="LabelSettings" id="LabelSettings_66fgh"]
 font = ExtResource("1_i4u65")
 font_size = 128
-font_color = Color(1, 0, 1, 1)
 
 [node name="LabelGrade" type="Label"]
 offset_left = 928.0
 offset_top = 376.0
 offset_right = 1062.0
 offset_bottom = 490.0
-text = "A+"
 label_settings = SubResource("LabelSettings_66fgh")
 vertical_alignment = 1

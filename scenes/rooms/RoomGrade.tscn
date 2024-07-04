@@ -31,28 +31,31 @@ font_color = Color(1, 0, 1, 1)
 [node name="RoomGrade" type="Node2D" node_paths=PackedStringArray("BGM_node", "SFX_Subject", "SFX_Labeling", "SFX_Graded")]
 script = ExtResource("1_05l1m")
 subject = "computer\\ngraphics"
-list_to_print_left = Array[String](["midterm :", "assignment :", "final :"])
-list_to_print_right = Array[String](["30/30", "20/20", "28/30"])
+list_to_print_left = Array[String](["homework :", "midterm :", "programming 1 :", "programming 2 :", "final :"])
+list_to_print_right = Array[String](["49/49", "89/101", "100/100", "100/100", "75/??"])
 grade = "A+"
+grade_color = Color(1, 0, 1, 1)
 LabelSubject_scene = ExtResource("6_qujck")
 LabelLeft_scene = ExtResource("2_gm0gm")
 LabelRight_scene = ExtResource("3_v7a0q")
 LabelGrade_scene = ExtResource("4_ynt1x")
-BGM_node = NodePath("BGM")
-SFX_Subject = NodePath("SFX_Subject")
-SFX_Labeling = NodePath("SFX_Labeling")
-SFX_Graded = NodePath("SFX_Graded")
+BGM_node = NodePath("Sounds/BGM")
+SFX_Subject = NodePath("Sounds/SFX_Subject")
+SFX_Labeling = NodePath("Sounds/SFX_Labeling")
+SFX_Graded = NodePath("Sounds/SFX_Graded")
 
-[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+[node name="Sounds" type="Node" parent="."]
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("2_g42v7")
 
-[node name="SFX_Subject" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX_Subject" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("4_pm2at")
 
-[node name="SFX_Labeling" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX_Labeling" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("5_325qc")
 
-[node name="SFX_Graded" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX_Graded" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("6_sctio")
 
 [node name="ColorRect" type="ColorRect" parent="."]

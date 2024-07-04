@@ -4,6 +4,7 @@ extends Node2D
 @export var list_to_print_left: Array[String]
 @export var list_to_print_right: Array[String]
 @export var grade: String
+@export var grade_color: Color
 
 @export var LabelSubject_scene: PackedScene
 @export var LabelLeft_scene: PackedScene
@@ -16,6 +17,8 @@ extends Node2D
 @export var SFX_Graded: AudioStreamPlayer2D
 
 var list_size: int
+
+const y_center = 240
 
 func _ready():
 	list_size = list_to_print_left.size()
@@ -41,11 +44,11 @@ func _ready():
 	for i in range(list_size):
 		var inst_left = LabelLeft_scene.instantiate()
 		inst_left.text = list_to_print_left[i]
-		inst_left.position = Vector2(0, 160 + 48 * i)
+		inst_left.position = Vector2(0, y_center + 48 * (i - ( float(list_size) / 2)))
 		add_child(inst_left)
 		var inst_right = LabelRight_scene.instantiate()
 		inst_right.text = list_to_print_right[i]
-		inst_right.position = Vector2(920, 160 + 48 * i)
+		inst_right.position = Vector2(920, y_center + 48 * (i - ( float(list_size) / 2)))
 		add_child(inst_right)
 		
 		SFX_Labeling.play()
@@ -58,7 +61,7 @@ func _ready():
 	
 	var inst_rank = LabelLeft_scene.instantiate()
 	inst_rank.text = "rank"
-	inst_rank.position = Vector2(0, 432)
+	inst_rank.position = Vector2(0, 464)
 	add_child(inst_rank)
 	SFX_Labeling.play()
 	
@@ -67,7 +70,8 @@ func _ready():
 	
 	var inst_grade = LabelGrade_scene.instantiate()
 	inst_grade.text = grade
-	inst_grade.position = Vector2(928, 376)
+	inst_grade.add_theme_color_override("font_color", grade_color)
+	inst_grade.position = Vector2(928, 408)
 	add_child(inst_grade)
 	SFX_Graded.play()
 

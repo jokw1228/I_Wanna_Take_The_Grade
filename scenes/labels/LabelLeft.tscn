@@ -9,7 +9,6 @@ font_size = 48
 [node name="LabeLeft" type="Label"]
 offset_right = 895.0
 offset_bottom = 44.0
-text = "midterm :"
 label_settings = SubResource("LabelSettings_lepso")
 horizontal_alignment = 2
 vertical_alignment = 1
