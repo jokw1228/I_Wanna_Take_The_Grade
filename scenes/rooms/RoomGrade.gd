@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var subject: String
+@export var subject_color: Color
 @export var list_to_print_left: Array[String]
 @export var list_to_print_right: Array[String]
 @export var grade: String
@@ -28,6 +29,7 @@ func _ready():
 	# subject
 	var inst_subject = LabelSubject_scene.instantiate()
 	inst_subject.text = subject.replace("\\n", "\n")
+	inst_subject.label_settings.set_font_color(subject_color)
 	inst_subject.position = Vector2(32, 64)
 	add_child(inst_subject)
 	SFX_Subject.play()
@@ -70,7 +72,7 @@ func _ready():
 	
 	var inst_grade = LabelGrade_scene.instantiate()
 	inst_grade.text = grade
-	inst_grade.add_theme_color_override("font_color", grade_color)
+	inst_grade.label_settings.set_font_color(grade_color)
 	inst_grade.position = Vector2(928, 408)
 	add_child(inst_grade)
 	SFX_Graded.play()

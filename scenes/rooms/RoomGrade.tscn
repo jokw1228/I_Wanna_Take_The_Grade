@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://d3sui2w0j6xpj"]
+[gd_scene load_steps=10 format=3 uid="uid://d3sui2w0j6xpj"]
 
 [ext_resource type="Script" path="res://scenes/rooms/RoomGrade.gd" id="1_05l1m"]
 [ext_resource type="AudioStream" uid="uid://dxqyr1bdsegkq" path="res://sounds/bgm_actclear.ogg" id="2_g42v7"]
 [ext_resource type="PackedScene" uid="uid://dwah6rsg15nrn" path="res://scenes/labels/LabelLeft.tscn" id="2_gm0gm"]
-[ext_resource type="FontFile" uid="uid://dp1qjkdy0dvo" path="res://fonts/acknowtt.ttf" id="3_umtjy"]
 [ext_resource type="PackedScene" uid="uid://c6m2j1fv4v1uv" path="res://scenes/labels/LabelRight.tscn" id="3_v7a0q"]
 [ext_resource type="AudioStream" uid="uid://cc85id431mlnn" path="res://sounds/has-item.wav" id="4_pm2at"]
 [ext_resource type="PackedScene" uid="uid://bnvorh3a8j3jl" path="res://scenes/labels/LabelGrade.tscn" id="4_ynt1x"]
@@ -11,27 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://283dcgc4bw8g" path="res://scenes/labels/LabelSubject.tscn" id="6_qujck"]
 [ext_resource type="AudioStream" uid="uid://dof1a5cnnlxe7" path="res://sounds/SFX_Graded.wav" id="6_sctio"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_lepso"]
-font = ExtResource("3_umtjy")
-font_size = 48
-
-[sub_resource type="LabelSettings" id="LabelSettings_aavvb"]
-font = ExtResource("3_umtjy")
-font_size = 48
-
-[sub_resource type="LabelSettings" id="LabelSettings_r5w3w"]
-font = ExtResource("3_umtjy")
-font_size = 48
-
-[sub_resource type="LabelSettings" id="LabelSettings_66fgh"]
-font = ExtResource("3_umtjy")
-font_size = 128
-font_color = Color(1, 0, 1, 1)
-
 [node name="RoomGrade" type="Node2D" node_paths=PackedStringArray("BGM_node", "SFX_Subject", "SFX_Labeling", "SFX_Graded")]
 script = ExtResource("1_05l1m")
 subject = "computer\\ngraphics"
-list_to_print_left = Array[String](["homework :", "midterm :", "programming 1 :", "programming 2 :", "final :"])
+subject_color = Color(0.967995, 0.270062, 0.440539, 1)
+list_to_print_left = Array[String](["hw :", "midterm :", "prog hw  I :", "prog hw II :", "final :"])
 list_to_print_right = Array[String](["49/49", "89/101", "100/100", "100/100", "75/??"])
 grade = "A+"
 grade_color = Color(1, 0, 1, 1)
@@ -62,106 +45,3 @@ stream = ExtResource("6_sctio")
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
-
-[node name="LegacyNodes" type="Node" parent="."]
-
-[node name="Subject" type="Node2D" parent="LegacyNodes"]
-visible = false
-
-[node name="Label_Subject" parent="LegacyNodes/Subject" instance=ExtResource("6_qujck")]
-visible = false
-
-[node name="Grades" type="Node2D" parent="LegacyNodes"]
-visible = false
-
-[node name="Midterm" type="Node2D" parent="LegacyNodes/Grades"]
-visible = false
-
-[node name="Label_Midterm" type="Label" parent="LegacyNodes/Grades/Midterm"]
-visible = false
-offset_left = 8.0
-offset_top = 160.0
-offset_right = 895.0
-offset_bottom = 204.0
-text = "midterm :"
-label_settings = SubResource("LabelSettings_lepso")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Label_MidtermScore" type="Label" parent="LegacyNodes/Grades/Midterm"]
-visible = false
-offset_left = 920.0
-offset_top = 160.0
-offset_right = 1152.0
-offset_bottom = 204.0
-text = "30/30"
-label_settings = SubResource("LabelSettings_aavvb")
-vertical_alignment = 1
-
-[node name="Assignment" type="Node2D" parent="LegacyNodes/Grades"]
-visible = false
-
-[node name="Label_Assignment" type="Label" parent="LegacyNodes/Grades/Assignment"]
-visible = false
-offset_left = 8.0
-offset_top = 208.0
-offset_right = 895.0
-offset_bottom = 252.0
-text = "assignment :"
-label_settings = SubResource("LabelSettings_lepso")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Label_AssignmentScore" type="Label" parent="LegacyNodes/Grades/Assignment"]
-visible = false
-offset_left = 920.0
-offset_top = 208.0
-offset_right = 1152.0
-offset_bottom = 252.0
-text = "20/20"
-label_settings = SubResource("LabelSettings_aavvb")
-vertical_alignment = 1
-
-[node name="Final" type="Node2D" parent="LegacyNodes/Grades"]
-visible = false
-
-[node name="Label_Final" type="Label" parent="LegacyNodes/Grades/Final"]
-visible = false
-offset_left = 8.0
-offset_top = 256.0
-offset_right = 895.0
-offset_bottom = 300.0
-text = "final :"
-label_settings = SubResource("LabelSettings_lepso")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Label_FinalScore" type="Label" parent="LegacyNodes/Grades/Final"]
-visible = false
-offset_left = 920.0
-offset_top = 256.0
-offset_right = 1152.0
-offset_bottom = 300.0
-text = "28/30"
-label_settings = SubResource("LabelSettings_aavvb")
-vertical_alignment = 1
-
-[node name="Label_Rank" type="Label" parent="LegacyNodes/Grades"]
-visible = false
-offset_top = 432.0
-offset_right = 892.0
-offset_bottom = 476.0
-text = "rank"
-label_settings = SubResource("LabelSettings_r5w3w")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Label_Grade" type="Label" parent="LegacyNodes/Grades"]
-visible = false
-offset_left = 928.0
-offset_top = 376.0
-offset_right = 1062.0
-offset_bottom = 490.0
-text = "A+"
-label_settings = SubResource("LabelSettings_66fgh")
-vertical_alignment = 1
