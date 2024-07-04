@@ -38,9 +38,11 @@ func load_savefile():
 		var subject_color_splitted = subject_color_parse.replace("(", "").replace(")", "").split(",")
 		GradeGenerator_node.subject_color = Color(float(subject_color_splitted[0]), float(subject_color_splitted[1]), float(subject_color_splitted[2]), float(subject_color_splitted[3]))
 		
-		print(current_line["list_to_print_left"])
-		#GradeGenerator_node.list_to_print_left = current_line["list_to_print_left"]
-		#GradeGenerator_node.list_to_print_right = current_line["list_to_print_right"]
+		#list_to_print_left
+		GradeGenerator_node.list_to_print_left.append_array(current_line["list_to_print_left"])
+		
+		#list_to_print_right
+		GradeGenerator_node.list_to_print_right.append_array(current_line["list_to_print_right"])
 		
 		#grade
 		GradeGenerator_node.grade = current_line["grade"]
