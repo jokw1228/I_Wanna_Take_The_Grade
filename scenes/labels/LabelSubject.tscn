@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://283dcgc4bw8g"]
+
+[ext_resource type="FontFile" uid="uid://dp1qjkdy0dvo" path="res://fonts/acknowtt.ttf" id="1_hlodg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qbbv2"]
+font = ExtResource("1_hlodg")
+font_size = 96
+
+[node name="LabelSubject" type="Label"]
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 608.0
+offset_bottom = 448.0
+text = "internet
+protocol"
+label_settings = SubResource("LabelSettings_qbbv2")
+horizontal_alignment = 1
+vertical_alignment = 1

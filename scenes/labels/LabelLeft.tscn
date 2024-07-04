@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwah6rsg15nrn"]
+
+[ext_resource type="FontFile" uid="uid://dp1qjkdy0dvo" path="res://fonts/acknowtt.ttf" id="1_ssdu5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lepso"]
+font = ExtResource("1_ssdu5")
+font_size = 48
+
+[node name="LabeLeft" type="Label"]
+offset_right = 895.0
+offset_bottom = 44.0
+text = "midterm :"
+label_settings = SubResource("LabelSettings_lepso")
+horizontal_alignment = 2
+vertical_alignment = 1

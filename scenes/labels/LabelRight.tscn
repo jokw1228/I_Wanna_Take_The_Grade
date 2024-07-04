@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6m2j1fv4v1uv"]
+
+[ext_resource type="FontFile" uid="uid://dp1qjkdy0dvo" path="res://fonts/acknowtt.ttf" id="1_ax651"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aavvb"]
+font = ExtResource("1_ax651")
+font_size = 48
+
+[node name="LabelRight" type="Label"]
+offset_left = 920.0
+offset_top = 160.0
+offset_right = 1152.0
+offset_bottom = 204.0
+text = "30/30"
+label_settings = SubResource("LabelSettings_aavvb")
+vertical_alignment = 1
