@@ -1,47 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3sui2w0j6xpj"]
+[gd_scene load_steps=2 format=3 uid="uid://d3sui2w0j6xpj"]
 
-[ext_resource type="Script" path="res://scenes/rooms/RoomGrade.gd" id="1_05l1m"]
-[ext_resource type="AudioStream" uid="uid://dxqyr1bdsegkq" path="res://sounds/bgm_actclear.ogg" id="2_g42v7"]
-[ext_resource type="PackedScene" uid="uid://dwah6rsg15nrn" path="res://scenes/labels/LabelLeft.tscn" id="2_gm0gm"]
-[ext_resource type="PackedScene" uid="uid://c6m2j1fv4v1uv" path="res://scenes/labels/LabelRight.tscn" id="3_v7a0q"]
-[ext_resource type="AudioStream" uid="uid://cc85id431mlnn" path="res://sounds/has-item.wav" id="4_pm2at"]
-[ext_resource type="PackedScene" uid="uid://bnvorh3a8j3jl" path="res://scenes/labels/LabelGrade.tscn" id="4_ynt1x"]
-[ext_resource type="AudioStream" uid="uid://ck4n6pi123pm1" path="res://sounds/KSHMR Hi Hats Closed 03.wav" id="5_325qc"]
-[ext_resource type="PackedScene" uid="uid://283dcgc4bw8g" path="res://scenes/labels/LabelSubject.tscn" id="6_qujck"]
-[ext_resource type="AudioStream" uid="uid://dof1a5cnnlxe7" path="res://sounds/SFX_Graded.wav" id="6_sctio"]
+[ext_resource type="PackedScene" uid="uid://dy6x6nvtr3xr4" path="res://scenes/gradegenerator/GradeGenerator.tscn" id="1_37eul"]
 
-[node name="RoomGrade" type="Node2D" node_paths=PackedStringArray("BGM_node", "SFX_Subject", "SFX_Labeling", "SFX_Graded")]
-script = ExtResource("1_05l1m")
-subject = "computer\\ngraphics"
-subject_color = Color(0.967995, 0.270062, 0.440539, 1)
-list_to_print_left = Array[String](["hw :", "midterm :", "prog hw  I :", "prog hw II :", "final :"])
-list_to_print_right = Array[String](["49/49", "89/101", "100/100", "100/100", "75/??"])
-grade = "A+"
-grade_color = Color(1, 0, 1, 1)
-LabelSubject_scene = ExtResource("6_qujck")
-LabelLeft_scene = ExtResource("2_gm0gm")
-LabelRight_scene = ExtResource("3_v7a0q")
-LabelGrade_scene = ExtResource("4_ynt1x")
-BGM_node = NodePath("Sounds/BGM")
-SFX_Subject = NodePath("Sounds/SFX_Subject")
-SFX_Labeling = NodePath("Sounds/SFX_Labeling")
-SFX_Graded = NodePath("Sounds/SFX_Graded")
-
-[node name="Sounds" type="Node" parent="."]
-
-[node name="BGM" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("2_g42v7")
-
-[node name="SFX_Subject" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("4_pm2at")
-
-[node name="SFX_Labeling" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("5_325qc")
-
-[node name="SFX_Graded" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("6_sctio")
+[node name="RoomGrade" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
+
+[node name="GradeGenerator" parent="." instance=ExtResource("1_37eul")]
+subject = "computer\\ngraphics"
+subject_color = Color(0.792157, 1, 1, 1)
+list_to_print_left = Array[String](["hw :", "midterm :", "prog hw  I :", "prog hw II :", "final :"])
+list_to_print_right = Array[String](["49/49", "89/101", "100/100", "100/100", "75/??"])
+grade = "A+"
+grade_color = Color(1, 0, 1, 1)

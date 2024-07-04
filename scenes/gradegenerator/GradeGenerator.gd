@@ -1,4 +1,5 @@
 extends Node2D
+class_name GradeGenerator
 
 @export var subject: String
 @export var subject_color: Color
